@@ -14,37 +14,52 @@
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./index.html"],
+  safelist: [
+    {
+      pattern: /col-span-./,
+    },
+    {
+      pattern: /justify-./,
+    },
+  ],
   theme: {
     colors: {
-      black: '#1F2937',
+      black: "#1F2937",
       grey: {
-        100: '#F3F4F6',
-        200: '#E5E7EB',
-        300: '#D1D5DB',
-        700: '#4B5563',
-        900: '#111827'
+        100: "#F3F4F6",
+        200: "#E5E7EB",
+        300: "#D1D5DB",
+        700: "#4B5563",
+        900: "#111827",
       },
-      
+      white: "#FFFFFF",
     },
-    fontSize: {
-      xs: ['12px, 16px'],
-      sm: ['14px, 20px'],
-      base: ['16px', '20px']
-    },
+
     screens: {
-      xl: '1440px'
+      xl: "1440px",
     },
     extend: {
       fontFamily: {
         epilogue: ['"Epilogue", sans-serif'],
         manrope: ['"Manrope", sans-serif'],
       },
+      gridColumn: {
+        "span-16": "span 16 / span 16",
+      },
+      gridTemplateColumns: {
+        13: "repeat(13, minmax(0, 1fr))", // 13 cols
+        16: "repeat(16, minmax(0, 1fr))", // 16 cols
+      },
+      lineHeight: {
+        3.5: "0.875rem", // 14px
+      },
       spacing: {
-        '2.5': '0.625rem', //10px
-      }
-    },
-    lineHeight: {
-      3.5: "0.875rem", // 14px
+        1.5: "0.375rem", // 6px
+        1.75: "0.438rem", // 7px
+        2.5: "0.625rem", // 10px
+        85.25: "21.313rem", // 341px
+        209.5: "52.375rem", // 838px
+      },
     },
   },
   plugins: [],

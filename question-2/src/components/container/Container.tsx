@@ -12,7 +12,7 @@ const Container = ({
     <div
       {...props}
       className={cn(
-        "container",
+        "container mx-auto px-2.5",
         {
           "mx-0 w-full max-w-none": isFullWidth,
           "p-0": noPadding,

@@ -1,10 +1,17 @@
+import { Container } from "@components/container";
+import { Table } from "@components/table";
+
+import { headersDesktop, headersMobile, tableBody } from "@/constant/data";
+
 function App() {
   return (
-    <>
-      <h4 className="font-epilogue">Epilogue</h4>
-      <p className="font-manrope">Manrope</p>
-      <p className="text-blue-900">something</p>
-    </>
+    <Container className="pb-5 px-2.5 xl:pt-1 xl:py-4">
+      <Table
+        headersDesktop={headersDesktop}
+        headersMobile={headersMobile}
+        dataSource={tableBody}
+      />
+    </Container>
   );
 }
 
