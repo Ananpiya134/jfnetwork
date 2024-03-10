@@ -15,6 +15,17 @@
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./index.html"],
   theme: {
+    colors: {
+      black: '#1F2937',
+      grey: {
+        100: '#F3F4F6',
+        200: '#E5E7EB',
+        300: '#D1D5DB',
+        700: '#4B5563',
+        900: '#111827'
+      },
+      
+    },
     fontSize: {
       xs: ['12px, 16px'],
       sm: ['14px, 20px'],
@@ -28,6 +39,9 @@ export default {
         epilogue: ['"Epilogue", sans-serif'],
         manrope: ['"Manrope", sans-serif'],
       },
+      spacing: {
+        '2.5': '0.625rem', //10px
+      }
     },
     lineHeight: {
       3.5: "0.875rem", // 14px
