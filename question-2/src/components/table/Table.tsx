@@ -62,7 +62,7 @@ const Table = ({
 
       {/* Table Body */}
       <tbody>
-        {dataSource!.length > 0 &&
+        {dataSource.length > 0 &&
           dataSource.map(({ name, children }) => {
             return (
               <tr

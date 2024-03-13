@@ -6,7 +6,10 @@ const Badge = ({ className = "", ...props }: BadgeProps): JSX.Element => {
   return (
     <div
       {...props}
-      className={cn("bg-grey-700 px-2.5 pt-1 pb-1.5 rounded-full", className)}
+      className={cn(
+        "bg-grey-700 flex justify-center items-center px-2.5 h-6.5 rounded-full",
+        className
+      )}
     />
   );
 };
