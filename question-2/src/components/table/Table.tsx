@@ -70,10 +70,10 @@ const Table = ({
               className="w-full grid grid-cols-16 xl:grid-cols-13 odd:bg-grey-200 even:bg-grey-100"
               key={name}
             >
-              <td className="col-span-full xl:col-span-3 px-2 xl:px-4 xl:py-1 pt-2 pb-0 flex items-center">
+              <td className="col-span-full xl:col-span-3 px-2 pt-2 pb-0 xl:px-4 xl:py-1  flex items-center">
                 <Typography variant="name">{name}</Typography>
               </td>
-              <td className="col-span-full xl:col-span-10">
+              <td className="col-span-full xl:col-span-10 p-0">
                 <table className="w-full">
                   <tbody>
                     {children.map(({ day, hall, time: { start, end } }) => {
