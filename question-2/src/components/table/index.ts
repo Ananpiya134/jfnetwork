@@ -1,3 +1,3 @@
 export { default as Table } from "./Table";
 
-export type { TableProps } from "./types";
+export type { TableProps, TableItems } from "./types";

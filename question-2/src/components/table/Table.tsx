@@ -6,11 +6,9 @@ import { cn } from "@/utils/cn";
 import type { TableProps } from "./types";
 
 const Table = ({
-  headersDesktop,
-  headersMobile,
+  tableItems: { headersDesktop, headersMobile, dataSource },
 
   className = "",
-  dataSource = [],
   ...props
 }: TableProps): JSX.Element => {
   return (
@@ -64,57 +62,64 @@ const Table = ({
 
       {/* Table Body */}
       <tbody>
-        {dataSource.map(({ name, children }) => {
-          return (
-            <tr
-              className="w-full grid grid-cols-16 xl:grid-cols-13 odd:bg-grey-200 even:bg-grey-100"
-              key={name}
-            >
-              <td className="col-span-full xl:col-span-3 px-2 pt-2 pb-0 xl:px-4 xl:py-1  flex items-center">
-                <Typography variant="name">{name}</Typography>
-              </td>
-              <td className="col-span-full xl:col-span-10 p-0">
-                <table className="w-full">
-                  <tbody>
-                    {children.map(({ day, hall, time: { start, end } }) => {
-                      return (
-                        <tr
-                          className="border-b border-b-grey-300 w-full grid grid-cols-16 xl:grid-cols-10 xl:last:border-b-0"
-                          key={`${name}-${day}-${hall}-${start}-${end}`}
-                        >
-                          <td className="col-span-4 xl:col-span-2 px-2 py-1 flex items-center xl:py-1 xl:px-4 ">
-                            <Typography variant="content">{day}</Typography>
-                          </td>
-                          <td className="col-span-6 xl:col-span-4 px-2 py-1 flex items-center xl:justify-center xl:py-1 xl:px-4 gap-1 xl:gap-4">
-                            <Badge>
-                              <Typography className="text-white" variant="date">
-                                {start}
+        {dataSource!.length > 0 &&
+          dataSource.map(({ name, children }) => {
+            return (
+              <tr
+                className="w-full grid grid-cols-16 xl:grid-cols-13 odd:bg-grey-200 even:bg-grey-100"
+                key={name}
+              >
+                <td className="col-span-full xl:col-span-3 px-2 pt-2 pb-0 xl:px-4 xl:py-1  flex items-center">
+                  <Typography variant="name">{name}</Typography>
+                </td>
+                <td className="col-span-full xl:col-span-10 p-0">
+                  <table className="w-full">
+                    <tbody>
+                      {children.map(({ day, hall, time: { start, end } }) => {
+                        return (
+                          <tr
+                            className="border-b border-b-grey-300 w-full grid grid-cols-16 xl:grid-cols-10 xl:last:border-b-0"
+                            key={`${name}-${day}-${hall}-${start}-${end}`}
+                          >
+                            <td className="col-span-4 xl:col-span-2 px-2 py-1 flex items-center xl:py-1 xl:px-4 ">
+                              <Typography variant="content">{day}</Typography>
+                            </td>
+                            <td className="col-span-6 xl:col-span-4 px-2 py-1 flex items-center xl:justify-center xl:py-1 xl:px-4 gap-1 xl:gap-4">
+                              <Badge>
+                                <Typography
+                                  className="text-white"
+                                  variant="date"
+                                >
+                                  {start}
+                                </Typography>
+                              </Badge>
+                              <Typography
+                                className="text-black"
+                                variant="content"
+                              >
+                                -
                               </Typography>
-                            </Badge>
-                            <Typography
-                              className="text-black"
-                              variant="content"
-                            >
-                              -
-                            </Typography>
-                            <Badge>
-                              <Typography className="text-white" variant="date">
-                                {end}
-                              </Typography>
-                            </Badge>
-                          </td>
-                          <td className="col-span-6 xl:col-span-4 px-2 py-1 flex items-center xl:py-1 xl:px-4 ">
-                            <Typography variant="content">{hall}</Typography>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          );
-        })}
+                              <Badge>
+                                <Typography
+                                  className="text-white"
+                                  variant="date"
+                                >
+                                  {end}
+                                </Typography>
+                              </Badge>
+                            </td>
+                            <td className="col-span-6 xl:col-span-4 px-2 py-1 flex items-center xl:py-1 xl:px-4 ">
+                              <Typography variant="content">{hall}</Typography>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            );
+          })}
       </tbody>
     </table>
   );

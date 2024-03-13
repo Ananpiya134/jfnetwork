@@ -22,9 +22,12 @@ export interface CellHeader {
   align: "center" | "left";
 }
 
-export interface TableProps extends ComponentPropsWithoutRef<"table"> {
+export interface TableItems {
   headersMobile: CellHeader[];
   headersDesktop: CellHeader[];
+  dataSource: RowData[];
+}
 
-  dataSource?: RowData[];
+export interface TableProps extends ComponentPropsWithoutRef<"table"> {
+  tableItems: TableItems;
 }
